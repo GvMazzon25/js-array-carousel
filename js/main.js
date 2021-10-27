@@ -40,3 +40,38 @@ const textCollection = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ];
 
+
+const imagesRef = document.querySelector('.images')
+const ithumbsRef = document.querySelector('.thumbs');
+
+//Carousel Attiva
+let activeImage = 1;
+
+for(let i = 0; i < imageCollection.length; i++) {
+    //Images
+    imagesRef.innerHTML += 
+    `<div class="image-container">
+         <img src="${imageCollection[i]}" alt="${titleCollection[i]}">
+         <div class="text">
+            <h3>${titleCollection[i]}</h3>
+             <p>${textCollection[i]}</p>
+         </div>
+    </div>`;
+
+    //Thumbs
+    ithumbsRef.innerHTML +=
+    `<div class="thumb">
+        <img src="${imageCollection[i]}" alt="${titleCollection[i]}">
+    </div>`
+}
+
+
+
+//Set active images and thumb
+console.log(document.getElementsByClassName('image-container'))
+document.getElementsByClassName('image-container')[activeImage].classList.add('active')
+
+console.log(document.getElementsByClassName('thumb'))
+document.getElementsByClassName('thumb')[activeImage].classList.add('active');
+
+//Next
