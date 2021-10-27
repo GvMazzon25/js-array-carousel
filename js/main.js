@@ -74,4 +74,52 @@ document.getElementsByClassName('image-container')[activeImage].classList.add('a
 console.log(document.getElementsByClassName('thumb'))
 document.getElementsByClassName('thumb')[activeImage].classList.add('active');
 
-//Next
+//Next Img
+
+const next = document.querySelector('.next');
+
+next.addEventListener('click', function(){
+    //Aggiorna immagine attiva
+    //activeImage++;
+    //console.log(activeImage)
+
+    //infinite loop nav
+    if(activeImage === imageCollection.length  -1){
+        activeImage = 0;
+    }else{
+        activeImage++;
+    }
+
+    //reset attuale e imposta successiva
+    document.querySelector('.image-container.active').classList.remove('active');
+    //Active successivo
+    document.getElementsByClassName('image-container')[activeImage].classList.add('active');
+    
+    //Impostare la thumbnail
+    //reset
+    document.querySelector('.thumb.active').classList.remove('active');
+    //imposta
+    document.getElementsByClassName('thumb')[activeImage].classList.add('active');
+})
+
+//Prev Img
+const prev = document.querySelector('.prev')
+
+prev.addEventListener('click', function(){
+    if(activeImage === imageCollection.length -5){
+        activeImage = 4;
+    }else{
+        activeImage--;
+    }
+
+    //reset attuale e imposta successiva
+    document.querySelector('.image-container.active').classList.remove('active');
+    //Active successivo
+    document.getElementsByClassName('image-container')[activeImage].classList.add('active');
+    
+    //Impostare la thumbnail
+    //reset
+    document.querySelector('.thumb.active').classList.remove('active');
+    //imposta
+    document.getElementsByClassName('thumb')[activeImage].classList.add('active');
+})
